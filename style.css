@@ -1,0 +1,120 @@
+:root {
+	--ff-base: "Lexend Deca", sans-serif;
+	--ff-head: "Big Shoulders Display", cursive;
+
+	--fs-base: 0.938rem;
+
+	--clr-neutral-100: hsla(0, 0%, 100%, 0.75);
+	--clr-neutral-200: hsl(0, 0%, 95%);
+	--clr-neutral-300: hsl(0, 0%, 92%);
+
+	--clr-accent-1: hsl(31, 77%, 52%);
+	--clr-accent-2: hsl(184, 100%, 22%);
+	--clr-accent-3: hsl(179, 100%, 13%);
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font: inherit;
+}
+
+img,
+picture,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+body {
+	font-family: var(--ff-base);
+	font-size: var(--fs-base);
+	font-weight: 400;
+	color: var(--clr-neutral-100);
+	min-height: 100vh;
+	min-height: 100dvh;
+	display: grid;
+	place-items: center;
+}
+
+.product {
+	display: grid;
+	border-radius: 0.5rem;
+	overflow: hidden;
+	margin: 3rem 1rem;
+}
+
+@media screen and (min-width: 768px) {
+	.product {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+.feature[data-color="accent-1"] {
+	--accent-color: var(--clr-accent-1);
+}
+.feature[data-color="accent-2"] {
+	--accent-color: var(--clr-accent-2);
+}
+.feature[data-color="accent-3"] {
+	--accent-color: var(--clr-accent-3);
+}
+
+.feature {
+	background-color: var(--accent-color);
+	padding: clamp(1.5rem, 4cqi, 3.5rem);
+	display: grid;
+	gap: 2rem;
+	max-width: 300px;
+}
+
+h2 {
+	font-family: var(--ff-head);
+	font-weight: 700;
+	color: var(--clr-neutral-200);
+	font-size: 2.5rem;
+	text-transform: uppercase;
+}
+
+p {
+	line-height: 1.6;
+}
+
+a {
+	display: block;
+	place-self: start;
+	border: 1px solid var(--clr-neutral-200);
+	border-radius: 100vw;
+	padding: 0.75rem 1.5rem;
+	background-color: var(--clr-neutral-200);
+	color: var(--accent-color);
+
+	transition: all 0.4s ease-in-out;
+}
+
+a:active,
+a:focus-within {
+	background-color: var(--clr-neutral-300);
+	border-color: var(--clr-neutral-300);
+	color: var(--accent-color);
+}
+
+@media screen and (min-width: 768px) {
+	a {
+		background-color: transparent;
+		color: var(--clr-neutral-200);
+	}
+
+	a:hover {
+		background-color: var(--clr-neutral-200);
+		color: var(--accent-color);
+	}
+}
